@@ -1,0 +1,17 @@
+FROM node:14-alpine
+
+WORKDIR /usr/src/api
+
+COPY package*.jason ./
+
+RUN npm install
+
+COPY . . 
+
+EXPOSE 3000
+
+ENV NODE_ENV='production'
+
+CMD [ "node", "./src/serve.js"]
+
+# docker build -t paulo45/devwebii-api:v1 .
